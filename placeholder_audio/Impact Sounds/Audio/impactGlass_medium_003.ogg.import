@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://coqutkpkitduk"
+path="res://.godot/imported/impactGlass_medium_003.ogg-8a896b585c0848fce0a6d740b5ddfa0a.oggvorbisstr"
+
+[deps]
+
+source_file="res://placeholder_audio/Impact Sounds/Audio/impactGlass_medium_003.ogg"
+dest_files=["res://.godot/imported/impactGlass_medium_003.ogg-8a896b585c0848fce0a6d740b5ddfa0a.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

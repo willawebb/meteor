@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1lnl6s4gniyv"]
+
+[ext_resource type="Texture2D" uid="uid://8dpgxooen76p" path="res://placeholder_art/the ship from asteroids.png" id="1_t3j4r"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_itjpl"]
+radius = 76.0
+height = 278.0
+
+[node name="the ship from asteroids" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_t3j4r")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+editor_description = "Precise collider"
+rotation = 1.5708
+polygon = PackedVector2Array(121, 1, 117, -6, -111.03, -67.045, -119.345, -66.105, -119.87, -56.645, -87.24, 0, -120.385, 58.985, -119.425, 69.125, -110.765, 69.33, 117.65, 8.205)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+editor_description = "Approximate collider"
+position = Vector2(-1, -18)
+shape = SubResource("CapsuleShape2D_itjpl")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dg6n5mshyobpk"]
 
-[ext_resource type="Texture2D" uid="uid://cd887sbknuy7s" path="res://placeholder_art/asteroid.png" id="1_r74ud"]
+[ext_resource type="Texture2D" uid="uid://dbbxipjt02mr3" path="res://placeholder_art/asteroid.png" id="1_r74ud"]
 
 [node name="Asteroid" type="RigidBody2D"]
 

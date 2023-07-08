@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://deqno2hkndxrf"
+path="res://.godot/imported/mouseclick1.ogg-c87d85abe2acd8f8bf0efc11593514e2.oggvorbisstr"
+
+[deps]
+
+source_file="res://placeholder_audio/UI Audio/Audio/mouseclick1.ogg"
+dest_files=["res://.godot/imported/mouseclick1.ogg-c87d85abe2acd8f8bf0efc11593514e2.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
