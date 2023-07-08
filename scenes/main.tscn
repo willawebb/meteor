@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_1lmkh"]
 [ext_resource type="PackedScene" uid="uid://dg6n5mshyobpk" path="res://scenes/asteroid.tscn" id="1_7l0af"]
 [ext_resource type="PackedScene" uid="uid://lumyoxp6ynyo" path="res://scenes/meteor.tscn" id="2_13m8q"]
-[ext_resource type="PackedScene" path="res://the ship from asteroids.tscn" id="4_qup3p"]
+[ext_resource type="PackedScene" uid="uid://6pwdc8ytag3s" path="res://scenes/the ship from asteroids.tscn" id="4_qup3p"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_1lmkh")
