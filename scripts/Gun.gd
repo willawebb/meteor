@@ -32,3 +32,15 @@ func _on_fire_rate_timeout():
 		get_tree().root.add_child(bullet)
 		bullet.position = s.global_position
 		bullet.rotation = s.global_rotation
+		
+func set_bullet_speed(n: float):
+	bullet_speed = n
+	
+func set_spawn_points(n: int):
+	spawn_points = n
+	
+func set_spawn_distance(n: int):
+	spawn_distance = n
+	
+func set_rotate_speed(n: float):
+	rotate_speed = n

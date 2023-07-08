@@ -20,3 +20,4 @@ position = Vector2(1564, 714)
 [node name="the ship from asteroids" parent="." instance=ExtResource("1_qy64g")]
 position = Vector2(418, 387)
 rotation = 1.56861
+bullet_speed = 200.0
