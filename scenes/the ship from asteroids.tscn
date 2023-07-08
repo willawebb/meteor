@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://6pwdc8ytag3s"]
 
 [ext_resource type="Script" path="res://scripts/the ship from asteroids.gd" id="1_rno12"]
-[ext_resource type="Texture2D" uid="uid://dg18dn1grfsi8" path="res://placeholder_art/the ship from asteroids.png" id="1_t3j4r"]
+[ext_resource type="Texture2D" uid="uid://bvj8c5a0scqj8" path="res://placeholder_art/the ship from asteroids.png" id="1_t3j4r"]
 
 [node name="the ship from asteroids" type="RigidBody2D"]
 gravity_scale = 0.0

@@ -1,24 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://dvxvq30jrlscd"]
+[gd_scene load_steps=4 format=3 uid="uid://g24a5r2p016j"]
 
-[ext_resource type="Script" path="res://scripts/main.gd" id="1_1lmkh"]
 [ext_resource type="PackedScene" uid="uid://dg6n5mshyobpk" path="res://scenes/asteroid.tscn" id="1_7l0af"]
+[ext_resource type="PackedScene" uid="uid://6pwdc8ytag3s" path="res://scenes/the ship from asteroids.tscn" id="1_qy64g"]
 [ext_resource type="PackedScene" uid="uid://lumyoxp6ynyo" path="res://scenes/meteor.tscn" id="2_13m8q"]
-[ext_resource type="PackedScene" uid="uid://6pwdc8ytag3s" path="res://scenes/the ship from asteroids.tscn" id="4_qup3p"]
 
-[node name="Main" type="Node"]
-script = ExtResource("1_1lmkh")
-asteroid_scene = ExtResource("1_7l0af")
-
-[node name="Asteroid" parent="." groups=["obstacles"] instance=ExtResource("1_7l0af")]
-collision_layer = 2
-can_sleep = false
-freeze_mode = 1
-script = null
+[node name="Main" type="Node2D"]
 
 [node name="Meteor" parent="." instance=ExtResource("2_13m8q")]
-position = Vector2(1407, 591)
-collision_mask = 3
+position = Vector2(943, 460)
 
-[node name="the ship from asteroids" parent="." instance=ExtResource("4_qrf8c")]
-position = Vector2(266, 218)
-rotation = -3.13534
+[node name="Asteroid" parent="." instance=ExtResource("1_7l0af")]
+position = Vector2(1564, 714)
+
+[node name="the ship from asteroids" parent="." instance=ExtResource("1_qy64g")]
+position = Vector2(418, 387)
