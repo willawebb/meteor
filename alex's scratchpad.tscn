@@ -1,8 +1,28 @@
-[gd_scene format=3 uid="uid://qjdluqnvbf0o"]
+[gd_scene load_steps=2 format=3 uid="uid://qjdluqnvbf0o"]
 
-[node name="Label" type="Label"]
-offset_left = 950.0
-offset_top = 515.0
-offset_right = 1037.0
-offset_bottom = 541.0
-text = "hello world"
+[ext_resource type="PackedScene" uid="uid://d1lnl6s4gniyv" path="res://the ship from asteroids.tscn" id="1_w7u4j"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "hi"
+
+[node name="the ship from asteroids" parent="." instance=ExtResource("1_w7u4j")]
+position = Vector2(-508, -259)
+scale = Vector2(0.5, 0.5)
+
+[node name="the ship from asteroids2" parent="." instance=ExtResource("1_w7u4j")]
+position = Vector2(-540, 268)
+scale = Vector2(0.5, 0.5)
+
+[node name="the ship from asteroids3" parent="." instance=ExtResource("1_w7u4j")]
+position = Vector2(578, 288)
+scale = Vector2(0.5, 0.5)
+
+[node name="the ship from asteroids4" parent="." instance=ExtResource("1_w7u4j")]
+position = Vector2(616, -249)
+scale = Vector2(0.5, 0.5)
