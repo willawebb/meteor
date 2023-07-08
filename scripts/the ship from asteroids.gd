@@ -1,14 +1,22 @@
-extends CharacterBody2D
+extends RigidBody2D
 
+signal enemy_hit
 
-const speed = 300.0
-const angular_speed = PI
+signal collision(id, new_velocity)
+
+@export var accel = 20
+
+@export var speedlimit = 300
+
+const wide_spin = 300
+
+const little_spin = PI
 
 func _process(delta): # _physics_process
 	# Speen
-	rotation += angular_speed * delta
+	rotation += little_spin * delta
 
-	var v = Vector2.UP.rotated(rotation) * speed
+	var v = Vector2.UP.rotated(rotation) * wide_spin
 
 	position += v * delta
 
