@@ -66,3 +66,4 @@ back={
 
 2d_physics/layer_2="asteroids"
 2d_physics/layer_3="bullets"
+2d_physics/layer_4="ships"

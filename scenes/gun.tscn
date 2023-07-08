@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://dyvcjtq0bpvc" path="res://scenes/bullet.tscn" id="2_7bsfy"]
 
 [node name="Gun" type="Node2D"]
-position = Vector2(948, 508)
 script = ExtResource("1_wcypq")
 bullet_scene = ExtResource("2_7bsfy")
 

@@ -6,6 +6,11 @@
 
 [node name="Main" type="Node2D"]
 
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
 [node name="Meteor" parent="." instance=ExtResource("2_13m8q")]
 position = Vector2(943, 460)
 
@@ -14,3 +19,4 @@ position = Vector2(1564, 714)
 
 [node name="the ship from asteroids" parent="." instance=ExtResource("1_qy64g")]
 position = Vector2(418, 387)
+rotation = 1.56861

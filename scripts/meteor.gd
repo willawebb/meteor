@@ -8,6 +8,8 @@ var screen_size
 
 var speed
 
+var hp = 10
+
 signal collision(id, new_velocity)
 
 func _ready():
@@ -26,6 +28,10 @@ func get_input():
 		speed.x += accel
 	if Input.is_action_pressed("move_left"):
 		speed.x -= accel
+		
+func take_damage(dmg):
+	hp -= dmg
+	print("Your Hp is {str}!".format({"str": hp}))
 
 func _integrate_forces(state):
 	get_input()
@@ -35,3 +41,5 @@ func _integrate_forces(state):
 	#Wrapping functionality. Cannot simply change position as that breaks
 	state.transform.origin.x = wrapf(state.transform.origin.x, 0, screen_size.x)
 	state.transform.origin.y = wrapf(state.transform.origin.y, 0, screen_size.y)
+	
+

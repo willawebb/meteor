@@ -1,14 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://6pwdc8ytag3s"]
+[gd_scene load_steps=4 format=3 uid="uid://6pwdc8ytag3s"]
 
 [ext_resource type="Script" path="res://scripts/the ship from asteroids.gd" id="1_rno12"]
 [ext_resource type="Texture2D" uid="uid://bvj8c5a0scqj8" path="res://placeholder_art/the ship from asteroids.png" id="1_t3j4r"]
+[ext_resource type="PackedScene" uid="uid://dvue4dtgve0of" path="res://scenes/gun.tscn" id="3_rfhuj"]
 
-[node name="the ship from asteroids" type="RigidBody2D"]
+[node name="ship" type="RigidBody2D"]
+position = Vector2(256, 192)
+collision_layer = 8
 gravity_scale = 0.0
 max_contacts_reported = 1
 contact_monitor = true
 linear_damp = 1.0
 script = ExtResource("1_rno12")
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = -1.5708
@@ -24,6 +28,12 @@ polygon = PackedVector2Array(121, 1, 117, -6, -111.03, -67.045, -119.345, -66.10
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 scale = Vector2(0.5, 0.5)
 rect = Rect2(-67.475, -121.035, 137.23, 241.715)
+
+[node name="Gun" parent="." instance=ExtResource("3_rfhuj")]
+position = Vector2(-3, 0)
+rotation = -1.57079
+spawn_distance = 60
+rotate_speed = 0.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -4,7 +4,7 @@ extends Node2D
 
 @export var bullet_speed = 100.0
 
-@export var spawn_points = 8 #how many guns are firing.
+@export var spawn_points = 1 #how many guns are firing.
 
 @export var spawn_distance = 20 #distance from centre of gun that rotator points are at.
 
@@ -12,7 +12,6 @@ extends Node2D
 
 func _ready():
 	var step = 2 * PI / spawn_points
-	$FireRate.start()
 	
 	for i in range(spawn_points):
 		var spawn_point = Node2D.new()
