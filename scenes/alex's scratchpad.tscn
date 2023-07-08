@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://b7ci3d5j3q5yn"]
+[gd_scene load_steps=2 format=3 uid="uid://botfigw8516vm"]
 
-[ext_resource type="PackedScene" uid="uid://6pwdc8ytag3s" path="res://the ship from asteroids.tscn" id="1_w7u4j"]
+[ext_resource type="PackedScene" uid="uid://6pwdc8ytag3s" path="res://scenes/the ship from asteroids.tscn" id="1_w7u4j"]
 
 [node name="Node2D" type="Node2D"]
 
