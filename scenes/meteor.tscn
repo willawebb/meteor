@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://lumyoxp6ynyo"]
 
 [ext_resource type="Script" path="res://scripts/meteor.gd" id="1_jm58i"]
-[ext_resource type="Texture2D" uid="uid://d0fut4p6iqae3" path="res://placeholder_art/meteor.png" id="2_htl3v"]
+[ext_resource type="Texture2D" uid="uid://ysvdooq7vmmp" path="res://placeholder_art/meteor.png" id="2_htl3v"]
 
-[node name="Meteor" type="RigidBody2D" groups=["wrap_around"]]
+[node name="Meteor" type="RigidBody2D"]
 script = ExtResource("1_jm58i")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

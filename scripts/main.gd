@@ -16,6 +16,3 @@ func _process(delta):
 		asteroid.linear_velocity = velocity.rotated(direction)
 		
 		add_child(asteroid)
-		
-		
-		

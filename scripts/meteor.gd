@@ -27,11 +27,11 @@ func get_input():
 	if Input.is_action_pressed("move_left"):
 		speed.x -= accel
 
-func _physics_process(delta):
+func _integrate_forces(state):
 	get_input()
 	apply_central_impulse(speed)
 	
 	
-	#Wrapping functionality.
-	position.x = wrapf(position.x, 0, screen_size.x)
-	position.y = wrapf(position.y, 0, screen_size.y)
+	#Wrapping functionality. Cannot simply change position as that breaks
+	state.transform.origin.x = wrapf(state.transform.origin.x, 0, screen_size.x)
+	state.transform.origin.y = wrapf(state.transform.origin.y, 0, screen_size.y)
