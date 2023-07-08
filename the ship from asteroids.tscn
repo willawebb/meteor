@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1lnl6s4gniyv"]
+
+[ext_resource type="Texture2D" uid="uid://8dpgxooen76p" path="res://placeholder_art/the ship from asteroids.png" id="1_t3j4r"]
+
+[node name="the ship from asteroids" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(462, 513)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_t3j4r")
