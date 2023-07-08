@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvxvq30jrlscd"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_1lmkh"]
+[ext_resource type="PackedScene" uid="uid://dg6n5mshyobpk" path="res://scenes/asteroid.tscn" id="1_7l0af"]
+[ext_resource type="PackedScene" uid="uid://lumyoxp6ynyo" path="res://scenes/meteor.tscn" id="2_13m8q"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_1lmkh")
+asteroid_scene = ExtResource("1_7l0af")
+
+[node name="Asteroid" parent="." groups=["obstacles"] instance=ExtResource("1_7l0af")]
+can_sleep = false
+freeze_mode = 1
+script = null
+
+[node name="Meteor" parent="." instance=ExtResource("2_13m8q")]
+position = Vector2(1407, 591)

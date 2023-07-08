@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dg6n5mshyobpk"]
+
+[ext_resource type="Script" path="res://scripts/asteroid.gd" id="1_fj5gc"]
+[ext_resource type="Texture2D" uid="uid://chqiwvuus5eiq" path="res://placeholder_art/asteroid.png" id="2_k6whu"]
+
+[node name="Asteroid" type="RigidBody2D"]
+position = Vector2(874, 386)
+gravity_scale = 0.0
+script = ExtResource("1_fj5gc")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_k6whu")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(30, -74.6, 30, -72.3, 42, -61.3, 42, -43.2, 36, -33.2, 36, -28.5, 38.9, -22, 44.4, -16, 75.5, -16, 80, -10, 80, -7.5, 90, 14.4, 90, 24.7, 98.9, 59, 75.6, 59, 54.6, 53, 40.6, 53, 37.9, 54.1, 34.9, 58.5, 43.7, 99, 38.5, 99, 9.60001, 112, -12.2, 112, -28, 109.6, -28, 107.9, -38, 102.9, -38, 95.5, -35.1, 87, -38.1, 87, -73, 83.7, -73, 81.3, -94, 61.3, -94, 58, -98.4, 21, -95.5, 21, -84, 6, -84, 4.8, -90, -5.2, -90, -14.3, -88.5, -22, -86.4, -22, -61, -51.2, -61, -52.5, -54.1, -71, -50.1, -71, -27, -75.7, -27, -72, -24.6, -69, -20, -69, 11, -75.4, 11, -77.5)

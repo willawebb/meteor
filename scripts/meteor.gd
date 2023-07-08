@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends RigidBody2D
 
 @export var accel = 50
 
@@ -6,28 +6,31 @@ extends CharacterBody2D
 
 var screen_size
 
+var speed
+
+signal collision(id, new_velocity)
+
 func _ready():
 	screen_size = get_viewport_rect().size
+	gravity_scale = 0.0
+	linear_damp = 1.0
 
 func get_input():
+	speed = Vector2.ZERO
+	
 	if Input.is_action_pressed("move_down"):
-		velocity.y += accel
+		speed.y += accel
 	if Input.is_action_pressed("move_up"):
-		velocity.y -= accel
+		speed.y -= accel
 	if Input.is_action_pressed("move_right"):
-		velocity.x += accel
+		speed.x += accel
 	if Input.is_action_pressed("move_left"):
-		velocity.x -= accel
-		
-	if not Input.is_anything_pressed():
-		velocity.x = lerp(velocity.x, 0.0, 0.1)
-		velocity.y = lerp(velocity.y, 0.0, 0.1)
+		speed.x -= accel
 
 func _physics_process(delta):
 	get_input()
-	if velocity.length() > max_speed:
-		velocity = velocity.normalized() * max_speed
-	move_and_slide()
+	apply_central_impulse(speed)
+	
 	
 	#Wrapping functionality.
 	position.x = wrapf(position.x, 0, screen_size.x)
