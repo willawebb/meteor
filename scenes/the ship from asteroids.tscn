@@ -24,3 +24,8 @@ polygon = PackedVector2Array(121, 1, 117, -6, -111.03, -67.045, -119.345, -66.10
 editor_description = "Approximate collider"
 position = Vector2(1, 18)
 shape = SubResource("CapsuleShape2D_itjpl")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+rect = Rect2(-67.475, -121.035, 137.23, 241.715)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

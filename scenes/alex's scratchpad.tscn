@@ -15,6 +15,10 @@ text = "hi"
 position = Vector2(-508, -259)
 scale = Vector2(0.5, 0.5)
 
+[node name="the ship from asteroids5" parent="." instance=ExtResource("1_w7u4j")]
+position = Vector2(694, 479)
+scale = Vector2(0.5, 0.5)
+
 [node name="the ship from asteroids2" parent="." instance=ExtResource("1_w7u4j")]
 position = Vector2(-540, 268)
 scale = Vector2(0.5, 0.5)
