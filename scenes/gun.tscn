@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvue4dtgve0of"]
+
+[ext_resource type="Script" path="res://scripts/Gun.gd" id="1_wcypq"]
+[ext_resource type="PackedScene" uid="uid://dyvcjtq0bpvc" path="res://scenes/bullet.tscn" id="2_7bsfy"]
+
+[node name="Gun" type="Node2D"]
+position = Vector2(948, 508)
+script = ExtResource("1_wcypq")
+bullet_scene = ExtResource("2_7bsfy")
+
+[node name="FireRate" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="Rotator" type="Node2D" parent="."]
+
+[connection signal="timeout" from="FireRate" to="." method="_on_fire_rate_timeout"]

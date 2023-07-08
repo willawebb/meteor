@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dvxvq30jrlscd"]
+[gd_scene load_steps=5 format=3 uid="uid://dvxvq30jrlscd"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_1lmkh"]
 [ext_resource type="PackedScene" uid="uid://dg6n5mshyobpk" path="res://scenes/asteroid.tscn" id="1_7l0af"]
 [ext_resource type="PackedScene" uid="uid://lumyoxp6ynyo" path="res://scenes/meteor.tscn" id="2_13m8q"]
+[ext_resource type="PackedScene" path="res://the ship from asteroids.tscn" id="4_qup3p"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_1lmkh")
@@ -15,3 +16,6 @@ script = null
 
 [node name="Meteor" parent="." instance=ExtResource("2_13m8q")]
 position = Vector2(1407, 591)
+
+[node name="the ship from asteroids" parent="." instance=ExtResource("4_qup3p")]
+position = Vector2(141, 201)
