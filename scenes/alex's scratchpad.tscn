@@ -1,15 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://botfigw8516vm"]
+[gd_scene load_steps=3 format=3 uid="uid://botfigw8516vm"]
 
 [ext_resource type="PackedScene" uid="uid://6pwdc8ytag3s" path="res://scenes/the ship from asteroids.tscn" id="1_w7u4j"]
+[ext_resource type="PackedScene" uid="uid://lumyoxp6ynyo" path="res://scenes/meteor.tscn" id="2_iuotv"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-
-[node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "hi"
 
 [node name="the ship from asteroids" parent="." instance=ExtResource("1_w7u4j")]
 position = Vector2(-508, -259)
@@ -25,3 +21,6 @@ position = Vector2(578, 288)
 
 [node name="the ship from asteroids4" parent="." instance=ExtResource("1_w7u4j")]
 position = Vector2(616, -249)
+
+[node name="Meteor" parent="." instance=ExtResource("2_iuotv")]
+position = Vector2(7, -1)
