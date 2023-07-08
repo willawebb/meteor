@@ -5,6 +5,8 @@
 
 [node name="the ship from asteroids" type="RigidBody2D"]
 gravity_scale = 0.0
+max_contacts_reported = 1
+contact_monitor = true
 linear_damp = 1.0
 script = ExtResource("1_rno12")
 

@@ -6,7 +6,7 @@ signal enemy_hit
 
 @export var speedlimit = 300
 
-func _physics_process(delta): # 
+func _integrate_forces(state):
 	pass
 	# velocity.x = move_toward(velocity.x, 0, speed)
 
