@@ -1,9 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://botfigw8516vm"]
+[gd_scene load_steps=7 format=3 uid="uid://botfigw8516vm"]
 
 [ext_resource type="PackedScene" uid="uid://6pwdc8ytag3s" path="res://scenes/the ship from asteroids.tscn" id="1_w7u4j"]
 [ext_resource type="PackedScene" uid="uid://dg6n5mshyobpk" path="res://scenes/asteroid.tscn" id="2_6fqru"]
 [ext_resource type="PackedScene" uid="uid://bv7b8qk5c3lvb" path="res://scenes/enemy_rail.tscn" id="3_30bgi"]
 [ext_resource type="PackedScene" uid="uid://vy0l5yqanq3j" path="res://scenes/spawn track.tscn" id="3_akuxh"]
+
+[sub_resource type="Curve2D" id="Curve2D_s7cgp"]
+_data = {
+"points": PackedVector2Array(-185.859, -126.056, 185.859, 126.056, -4, -3, -178.324, 171.246, 178.324, -171.246, 1012, 61, 124.325, 192.652, -124.325, -192.652, 1028, -515, 128.092, -200.976, 0, 0, -28, -531)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_k6eli"]
+_data = {
+"points": PackedVector2Array(883.238, -40.4331, -883.238, 40.4331, 768, 468, 96.3828, 47.5685, -96.3828, -47.5685, -491, 357, -136.111, 199.787, 136.111, -199.787, -806, 15, -365.429, -221.193, 365.429, 221.193, 237, -141)
+}
+point_count = 4
 
 [node name="Node2D" type="Node2D"]
 
@@ -17,5 +29,11 @@ spawn_rate = 2.0
 [node name="Enemy Rail" parent="." instance=ExtResource("3_30bgi")]
 position = Vector2(-501.485, 235)
 scale = Vector2(0.94697, 1)
+curve = SubResource("Curve2D_s7cgp")
 thing_to_spawn = ExtResource("1_w7u4j")
-spawn_rate = 2.5
+immediately_start = true
+
+[node name="Enemy Rail2" parent="." instance=ExtResource("3_30bgi")]
+curve = SubResource("Curve2D_k6eli")
+thing_to_spawn = ExtResource("1_w7u4j")
+immediately_start = true
