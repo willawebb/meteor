@@ -6,6 +6,8 @@ signal enemy_hit
 
 @export var speedlimit = 300
 
+# To change the Gun, alter it in the node inspector of your ship scene
+
 func _integrate_forces(state):
 	pass
 	# velocity.x = move_toward(velocity.x, 0, speed)

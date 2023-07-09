@@ -10,6 +10,8 @@ extends Node2D
 
 @export var rotate_speed = 10.0 #degrees per second.
 
+# Change these in the node inspector of the ship scene, don't make a new gun
+
 func _ready():
 	var step = 2 * PI / spawn_points
 	
