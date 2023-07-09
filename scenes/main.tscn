@@ -155,3 +155,8 @@ stream = ExtResource("15_8ykav")
 [node name="GameOverSound" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_hcy4h")
 volume_db = 5.0
+
+[node name="ShuffleRailsTimer" type="Timer" parent="."]
+wait_time = 30.0
+
+[connection signal="timeout" from="ShuffleRailsTimer" to="." method="_on_shuffle_rails_timer_timeout"]

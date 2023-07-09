@@ -19,3 +19,5 @@ rotation = 0.595968
 loop = false
 
 [node name="SpawnPoint" parent="." instance=ExtResource("2_4qef3")]
+
+[connection signal="stop_rail" from="." to="." method="_on_stop_rail"]
