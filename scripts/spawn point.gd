@@ -22,5 +22,6 @@ func _on_spawn_rate_timeout():
 			return
 		start()
 	var thing = thing_to_spawn.instantiate()
+	thing.hide()
 	thing.set_track(track_to_follow, starting_point)
 	add_child(thing)

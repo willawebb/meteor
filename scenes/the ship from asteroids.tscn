@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://6pwdc8ytag3s"]
 
 [ext_resource type="Script" path="res://scripts/the ship from asteroids.gd" id="1_rno12"]
-[ext_resource type="Texture2D" uid="uid://bvj8c5a0scqj8" path="res://placeholder_art/the ship from asteroids.png" id="1_t3j4r"]
+[ext_resource type="Texture2D" uid="uid://nlj5ks42evfh" path="res://placeholder_art/the ship from asteroids.png" id="1_t3j4r"]
 [ext_resource type="PackedScene" uid="uid://dvue4dtgve0of" path="res://scenes/gun.tscn" id="3_rfhuj"]
 
 [node name="ship" type="RigidBody2D" groups=["ships"]]
