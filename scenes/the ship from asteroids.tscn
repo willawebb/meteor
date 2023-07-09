@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://6pwdc8ytag3s"]
 
 [ext_resource type="Script" path="res://scripts/the ship from asteroids.gd" id="1_rno12"]
-[ext_resource type="Texture2D" uid="uid://bvj8c5a0scqj8" path="res://placeholder_art/the ship from asteroids.png" id="1_t3j4r"]
+[ext_resource type="Texture2D" uid="uid://dg18dn1grfsi8" path="res://placeholder_art/the ship from asteroids.png" id="1_t3j4r"]
 [ext_resource type="PackedScene" uid="uid://dvue4dtgve0of" path="res://scenes/gun.tscn" id="3_rfhuj"]
 
 [node name="ship" type="RigidBody2D"]
@@ -32,7 +32,9 @@ rect = Rect2(-67.475, -121.035, 137.23, 241.715)
 [node name="Gun" parent="." instance=ExtResource("3_rfhuj")]
 position = Vector2(-3, 0)
 rotation = -1.57079
-spawn_distance = 60
+bullet_speed = 200.0
+spawn_points = 6
+spawn_distance = 30
 rotate_speed = 0.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

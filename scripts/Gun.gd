@@ -19,9 +19,9 @@ func _ready():
 		spawn_point.position = pos
 		spawn_point.rotation = pos.angle()
 		$Rotator.add_child(spawn_point)
-		
-	$FireRate.start()
 	
+	$FireRate.start()
+
 func _process(delta):
 	var new_rotation = $Rotator.rotation_degrees + rotate_speed * delta
 	$Rotator.rotation_degrees = fmod(new_rotation, 360)
@@ -32,15 +32,4 @@ func _on_fire_rate_timeout():
 		get_tree().root.add_child(bullet)
 		bullet.position = s.global_position
 		bullet.rotation = s.global_rotation
-		
-func set_bullet_speed(n: float):
-	bullet_speed = n
-	
-func set_spawn_points(n: int):
-	spawn_points = n
-	
-func set_spawn_distance(n: int):
-	spawn_distance = n
-	
-func set_rotate_speed(n: float):
-	rotate_speed = n
+		bullet.speed = bullet_speed
