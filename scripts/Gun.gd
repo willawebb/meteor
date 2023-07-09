@@ -8,7 +8,10 @@ extends Node2D
 
 @export_range(1, 1000) var spawn_distance = 20 # distance from centre of gun that rotator points are at.
 
-@export_range(1, 360, 0.1) var rotate_speed: float = 10.0 # degrees per second.
+@export_range(0, 360, 0.1) var rotate_speed: float = 10.0 # degrees per second.
+
+@export var fire_rate: Array[float] = [2.0]
+var fire_index = 0
 
 # Change these in the node inspector of the ship scene, don't make a new gun
 
@@ -22,13 +25,20 @@ func _ready():
 		spawn_point.rotation = pos.angle()
 		$Rotator.add_child(spawn_point)
 	
-	$FireRate.start()
+	$FireRate.start(fire_rate[fire_index])
 
 func _process(delta):
 	var new_rotation = $Rotator.rotation_degrees + rotate_speed * delta
 	$Rotator.rotation_degrees = fmod(new_rotation, 360)
 
 func _on_fire_rate_timeout():
+	if len(fire_rate) > 1:
+		$FireRate.stop()
+		fire_index += 1
+		fire_index %= len(fire_rate)
+		if fire_rate[fire_index] <= 0.0:
+			return
+		$FireRate.start(fire_rate[fire_index])
 	for s in $Rotator.get_children():
 		var bullet = bullet_scene.instantiate()
 		get_tree().root.add_child(bullet)
