@@ -138,5 +138,6 @@ func _on_shuffle_rails_timer_timeout():
 func shuffle_rails(n: int = 3):
 	get_tree().call_group("rails", "stop")
 	var rail_nodes = get_tree().get_nodes_in_group("rails")
-	for i in range(n):
-		rail_nodes[randi() % len(rail_nodes)].start()
+	var node_count = len(rail_nodes)
+	for i in range(min(node_count, n)):
+		rail_nodes[randi() % node_count].start()
