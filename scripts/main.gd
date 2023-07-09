@@ -15,11 +15,11 @@ var level = 0
 func _ready():
 	$StartUp.play()
 	$ScoreBoard.hide()
-	$SpawnTrack/SpawnRate.stop()
+	$SpawnTrack.stop()
 	
 
 func game_over():
-	$SpawnTrack/SpawnRate.stop()
+	$SpawnTrack.stop()
 	if score < 25:
 		$StartMessage.text = "How embarrassing."
 	else:
@@ -40,7 +40,7 @@ func new_game():
 	$StartMessage.hide()
 	$SubTitle.hide()
 	$MadeBy.hide()
-	$SpawnTrack/SpawnRate.start()
+	$SpawnTrack.start()
 	
 	var meteor = meteor_scene.instantiate()
 	
