@@ -89,6 +89,9 @@ func _process(delta):
 		pass
 
 func game_over(meteor_pos):
+	get_tree().call_group("rails", "stop")
+	$SpawnTrack.stop()
+	
 	var particles = explosion_scene.instantiate()
 	
 	particles.position = meteor_pos
@@ -111,7 +114,6 @@ func game_over(meteor_pos):
 	$VHS.material.set_shader_parameter("brightness", 1.4)
 	$VHS.material.set_shader_parameter("aberration", 0.01)
 	
-	$SpawnTrack/SpawnRate.stop()
 	if score < 25:
 		$StartMessage.text = "How embarrassing."
 	else:
