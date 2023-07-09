@@ -42,6 +42,7 @@ func new_game():
 	$MadeBy.hide()
 	$SpawnTrack.start()
 	$ShuffleRailsTimer.start()
+	shuffle_rails()
 	
 	var meteor = meteor_scene.instantiate()
 	
@@ -132,7 +133,10 @@ func _on_the_ship_from_asteroids_enemy_hit(ship_pos):
 	
 
 func _on_shuffle_rails_timer_timeout():
+	shuffle_rails()
+
+func shuffle_rails(n: int = 3):
 	get_tree().call_group("rails", "stop")
 	var rail_nodes = get_tree().get_nodes_in_group("rails")
-	for i in range(3):
+	for i in range(n):
 		rail_nodes[randi() % len(rail_nodes)].start()
