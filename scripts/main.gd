@@ -12,6 +12,7 @@ var score = 0
 
 func _ready():
 	$StartUp.play()
+	$ScoreBoard.hide()
 	
 
 func game_over():
@@ -91,6 +92,8 @@ func _process(delta):
 
 func _on_the_ship_from_asteroids_enemy_hit(ship_pos):
 	score += 1
+	$ScoreBoard.text = "[center]{score}[/center]".format({"score": score})
+	$ScoreBoard.show()
 	
 	$ShipHitSounds.play()
 	
@@ -114,4 +117,6 @@ func _on_the_ship_from_asteroids_enemy_hit(ship_pos):
 	#reverting shader changes
 	$VHS.material.set_shader_parameter("brightness", 1.4)
 	$VHS.material.set_shader_parameter("aberration", 0.01)
+	
+	$ScoreBoard.hide()
 	
