@@ -10,8 +10,8 @@ var track_rotation: float = 0.0
 var starting_point: Vector2
 
 func _ready():
-	add_to_group("ships")
 	hide()
+	add_to_group("ships")
 
 # To change the Gun, alter it in the node inspector of your ship scene
 
@@ -34,13 +34,14 @@ func set_track(track: PathFollow2D, start: Vector2):
 
 func follow_track(state):
 	if track_to_follow is PathFollow2D:
-		show()
 		track_progress += speed * state.step
 		track_to_follow.progress = track_progress
 		state.transform.origin.x = track_to_follow.position.x + starting_point.x
 		state.transform.origin.y = track_to_follow.position.y + starting_point.y
 		state.transform = state.transform.rotated_local(track_to_follow.rotation - track_rotation)
 		track_rotation = track_to_follow.rotation
+		if track_to_follow.progress_ratio >= 0.001:
+			show()
 		if track_to_follow.progress_ratio >= 0.98:
 			queue_free()
 	
