@@ -56,7 +56,7 @@ func follow_track(state):
 		state.transform.origin.y = track_to_follow.position.y + starting_point.y
 		state.transform = state.transform.rotated_local(track_to_follow.rotation - track_rotation)
 		track_rotation = track_to_follow.rotation
-		if track_to_follow.progress_ratio >= 0.001:
+		if track_to_follow.progress_ratio >= 0.000000001:
 			show()
 		if track_to_follow.progress_ratio >= 0.98:
 			queue_free()
