@@ -33,3 +33,6 @@ func _on_spawn_rate_timeout():
 
 func stop():
 	$SpawnRate.stop()
+
+func start():
+	$SpawnRate.start(spawn_rate)
