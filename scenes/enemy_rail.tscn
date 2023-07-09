@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bv7b8qk5c3lvb"]
+
+[ext_resource type="Script" path="res://scripts/enemy_rail.gd" id="1_tu8dn"]
+[ext_resource type="PackedScene" uid="uid://dpat2x3gmeauf" path="res://scenes/spawn point.tscn" id="2_4qef3"]
+
+[sub_resource type="Curve2D" id="Curve2D_ylyey"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -4, -3, 0, 0, 0, 0, 1012, 61, 0, 0, 0, 0, 1028, -515, 0, 0, 0, 0, -28, -531)
+}
+point_count = 4
+
+[node name="Enemy Rail" type="Path2D"]
+curve = SubResource("Curve2D_ylyey")
+script = ExtResource("1_tu8dn")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(-4, -3)
+rotation = 0.062909
+loop = false
+
+[node name="SpawnPoint" parent="." instance=ExtResource("2_4qef3")]

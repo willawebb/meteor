@@ -1,14 +1,13 @@
 extends Node2D
 
 @export var thing_to_spawn: PackedScene
+@export var track_to_follow: PathFollow2D
+@export_range(0.5, 60, 0.5) var spawn_rate = 5.0
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func start():
+	$SpawnRate.start(spawn_rate)
 
 func _on_spawn_rate_timeout():
-	pass # Replace with function body.
+	var thing = thing_to_spawn.instantiate()
+	thing.set_track(track_to_follow)
+	add_child(thing)

@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://botfigw8516vm"]
+[gd_scene load_steps=5 format=3 uid="uid://botfigw8516vm"]
 
 [ext_resource type="PackedScene" uid="uid://6pwdc8ytag3s" path="res://scenes/the ship from asteroids.tscn" id="1_w7u4j"]
+[ext_resource type="PackedScene" uid="uid://dg6n5mshyobpk" path="res://scenes/asteroid.tscn" id="2_6fqru"]
+[ext_resource type="PackedScene" uid="uid://bv7b8qk5c3lvb" path="res://scenes/enemy_rail.tscn" id="3_30bgi"]
 [ext_resource type="PackedScene" uid="uid://vy0l5yqanq3j" path="res://scenes/spawn track.tscn" id="3_akuxh"]
 
 [node name="Node2D" type="Node2D"]
@@ -9,5 +11,10 @@
 position = Vector2(0, -1)
 
 [node name="SpawnTrack" parent="." instance=ExtResource("3_akuxh")]
-thing_to_spawn = ExtResource("1_w7u4j")
+thing_to_spawn = ExtResource("2_6fqru")
 spawn_rate = 2.0
+
+[node name="Enemy Rail" parent="." instance=ExtResource("3_30bgi")]
+position = Vector2(-500, 235)
+thing_to_spawn = ExtResource("1_w7u4j")
+spawn_rate = 2.5
