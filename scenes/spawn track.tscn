@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://vy0l5yqanq3j"]
+
+[ext_resource type="Script" path="res://scripts/spawn track.gd" id="1_3jfdw"]
+
+[sub_resource type="Curve2D" id="Curve2D_1yvvf"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -960, -544, 0, 0, 0, 0, 960, -544, 0, 0, 0, 0, 960, 544, 0, 0, 0, 0, -960, 544, 0, 0, 0, 0, -960, -544)
+}
+point_count = 5
+
+[node name="SpawnTrack" type="Path2D"]
+curve = SubResource("Curve2D_1yvvf")
+script = ExtResource("1_3jfdw")
+
+[node name="SpawnLocation" type="PathFollow2D" parent="."]
+position = Vector2(-960, -544)
+
+[node name="SpawnRate" type="Timer" parent="."]
+
+[connection signal="timeout" from="SpawnRate" to="." method="_on_spawn_rate_timeout"]

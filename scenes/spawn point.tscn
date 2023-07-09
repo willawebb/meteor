@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpat2x3gmeauf"]
+
+[ext_resource type="Script" path="res://scripts/spawn point.gd" id="1_lr65m"]
+
+[node name="SpawnPoint" type="Node2D"]
+script = ExtResource("1_lr65m")
+
+[node name="SpawnRate" type="Timer" parent="."]
+
+[connection signal="timeout" from="SpawnRate" to="." method="_on_spawn_rate_timeout"]

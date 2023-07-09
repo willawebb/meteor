@@ -17,7 +17,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="the ship from asteroids" parent="." instance=ExtResource("1_qy64g")]
 position = Vector2(418, 387)
-rotation = 1.56861
+rotation = 1.5708
 
 [node name="Meteor" parent="." instance=ExtResource("2_13m8q")]
 position = Vector2(943, 460)
