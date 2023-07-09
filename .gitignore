@@ -4,3 +4,7 @@
 **/*.import
 
 **/*.tmp
+
+bin/
+
+export_presets.cfg
