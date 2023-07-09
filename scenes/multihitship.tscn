@@ -1,8 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://6pwdc8ytag3s"]
+[gd_scene load_steps=4 format=3 uid="uid://be0qbldxu4ea2"]
 
-[ext_resource type="Script" path="res://scripts/the ship from asteroids.gd" id="1_rno12"]
-[ext_resource type="Texture2D" uid="uid://bvj8c5a0scqj8" path="res://placeholder_art/the ship from asteroids.png" id="1_t3j4r"]
-[ext_resource type="PackedScene" uid="uid://dvue4dtgve0of" path="res://scenes/gun.tscn" id="3_rfhuj"]
+[ext_resource type="Script" path="res://scripts/the ship from asteroids.gd" id="1_aypax"]
+[ext_resource type="Texture2D" uid="uid://bvj8c5a0scqj8" path="res://placeholder_art/the ship from asteroids.png" id="2_kadry"]
+[ext_resource type="PackedScene" uid="uid://dvue4dtgve0of" path="res://scenes/gun.tscn" id="3_c3dmv"]
 
 [node name="ship" type="RigidBody2D" groups=["ships"]]
 collision_layer = 8
@@ -10,12 +10,16 @@ gravity_scale = 0.0
 max_contacts_reported = 1
 contact_monitor = true
 linear_damp = 1.0
-script = ExtResource("1_rno12")
+script = ExtResource("1_aypax")
+speed = 50
+spawn_points = 6
+spawn_distance = 60
+rotate_speed = 15.0
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_t3j4r")
+texture = ExtResource("2_kadry")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 editor_description = "Precise collider"
@@ -27,7 +31,7 @@ rotation = 1.5708
 scale = Vector2(0.5, 0.5)
 rect = Rect2(-67.475, -121.035, 137.23, 241.715)
 
-[node name="Gun" parent="." instance=ExtResource("3_rfhuj")]
+[node name="Gun" parent="." instance=ExtResource("3_c3dmv")]
 position = Vector2(-3, 0)
 bullet_speed = 150
 spawn_distance = 30
