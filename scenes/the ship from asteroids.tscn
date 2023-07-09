@@ -14,23 +14,21 @@ script = ExtResource("1_rno12")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-rotation = -1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_t3j4r")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 editor_description = "Precise collider"
-rotation = -1.5708
 scale = Vector2(0.5, 0.5)
 polygon = PackedVector2Array(121, 1, 117, -6, -111.03, -67.045, -119.345, -66.105, -119.87, -56.645, -87.24, 0, -120.385, 58.985, -119.425, 69.125, -110.765, 69.33, 117.65, 8.205)
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+rotation = 1.5708
 scale = Vector2(0.5, 0.5)
 rect = Rect2(-67.475, -121.035, 137.23, 241.715)
 
 [node name="Gun" parent="." instance=ExtResource("3_rfhuj")]
 position = Vector2(-3, 0)
-rotation = -1.57079
 bullet_speed = 200
 spawn_points = 6
 spawn_distance = 30
