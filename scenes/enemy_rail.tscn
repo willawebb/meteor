@@ -21,3 +21,4 @@ loop = false
 [node name="SpawnPoint" parent="." instance=ExtResource("2_4qef3")]
 
 [connection signal="stop_rail" from="." to="." method="_on_stop_rail"]
+[connection signal="spawn_point_spawned" from="SpawnPoint" to="." method="_on_spawn_point_spawn_point_spawned"]

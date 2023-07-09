@@ -6,6 +6,8 @@ extends Node2D
 @export var spawn_rate: Array[float] = [5.0]
 var spawn_index = 0
 
+signal spawn_point_spawned(thing)
+
 func start():
 	$SpawnRate.start(spawn_rate[spawn_index])
 	
@@ -25,3 +27,4 @@ func _on_spawn_rate_timeout():
 	thing.hide()
 	thing.set_track(track_to_follow, starting_point)
 	add_child(thing)
+	spawn_point_spawned.emit(thing)
