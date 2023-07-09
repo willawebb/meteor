@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://cd8aabo7mr5r6"]
+
+[ext_resource type="Texture2D" uid="uid://7iyb25ryb4px" path="res://placeholder_art/particles/muzzle_02.png" id="1_vlxqx"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wniw5"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 300.0
+angular_velocity_min = -90.0
+angular_velocity_max = 90.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 0.1
+scale_max = 0.5
+color = Color(1, 0.188235, 0.054902, 1)
+hue_variation_max = 0.2
+
+[node name="Explosion" type="GPUParticles2D"]
+scale = Vector2(0.1, 0.1)
+emitting = false
+amount = 32
+process_material = SubResource("ParticleProcessMaterial_wniw5")
+texture = ExtResource("1_vlxqx")
+one_shot = true
+preprocess = 0.5
+explosiveness = 1.0
+randomness = 1.0
