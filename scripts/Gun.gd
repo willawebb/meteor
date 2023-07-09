@@ -2,13 +2,13 @@ extends Node2D
 
 @export var bullet_scene: PackedScene
 
-@export var bullet_speed = 100.0
+@export_range(1, 1000) var bullet_speed = 100
 
-@export var spawn_points = 1 #how many guns are firing.
+@export_range(1, 64) var spawn_points = 1 # how many guns are firing.
 
-@export var spawn_distance = 20 #distance from centre of gun that rotator points are at.
+@export_range(1, 1000) var spawn_distance = 20 # distance from centre of gun that rotator points are at.
 
-@export var rotate_speed = 10.0 #degrees per second.
+@export_range(1, 360, 0.1) var rotate_speed: float = 10.0 # degrees per second.
 
 # Change these in the node inspector of the ship scene, don't make a new gun
 

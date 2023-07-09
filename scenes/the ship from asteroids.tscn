@@ -32,7 +32,7 @@ rect = Rect2(-67.475, -121.035, 137.23, 241.715)
 [node name="Gun" parent="." instance=ExtResource("3_rfhuj")]
 position = Vector2(-3, 0)
 rotation = -1.57079
-bullet_speed = 200.0
+bullet_speed = 200
 spawn_points = 6
 spawn_distance = 30
 rotate_speed = 0.0
