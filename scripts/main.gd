@@ -122,7 +122,7 @@ func game_over(meteor_pos):
 	$SubTitle.show()
 	$MadeBy.show()
 
-func _on_the_ship_from_asteroids_enemy_hit(ship_pos):
+func _on_the_ship_from_asteroids_enemy_hit(ship_pos, ship_start):
 	score += 1
 	$ScoreBoard.text = "[center]{score}[/center]".format({"score": score})
 	$ScoreBoard.show()
@@ -132,7 +132,7 @@ func _on_the_ship_from_asteroids_enemy_hit(ship_pos):
 	#summon particles and ship rubble
 	var particles = explosion_scene.instantiate()
 	
-	particles.position = ship_pos
+	particles.position = ship_pos + ship_start
 	
 	particles.emitting = true
 	

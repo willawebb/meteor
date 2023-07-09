@@ -29,4 +29,4 @@ func _on_stop_rail():
 
 
 func _on_spawn_point_spawn_point_spawned(thing):
-	rail_spawned.emit(thing, position)
+	rail_spawned.emit(thing)
