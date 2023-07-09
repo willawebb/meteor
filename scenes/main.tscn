@@ -143,3 +143,8 @@ stream = ExtResource("14_dts6n")
 stream = ExtResource("15_8ykav")
 
 [node name="RockTimer" type="Timer" parent="."]
+
+[node name="ShuffleRailsTimer" type="Timer" parent="."]
+wait_time = 30.0
+
+[connection signal="timeout" from="ShuffleRailsTimer" to="." method="_on_shuffle_rails_timer_timeout"]
