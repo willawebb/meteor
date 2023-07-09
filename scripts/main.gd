@@ -10,6 +10,10 @@ extends Node
 
 var score = 0
 
+func _ready():
+	$StartUp.play()
+	
+
 func game_over():
 	$StartMessage.text = "How embarrassing."
 	$StartMessage.show()
@@ -77,6 +81,8 @@ func _process(delta):
 		new_game()
 		
 	if Input.is_action_just_pressed("escape"):
+		$ItsJoever.play()
+		await(get_tree().create_timer(0.5).timeout)
 		get_tree().quit()
 
 
