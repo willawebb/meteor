@@ -4,6 +4,16 @@ signal enemy_hit(position)
 
 @export var speed = 150
 
+@export_range(1, 1000) var bullet_speed = 100
+
+@export_range(1, 64) var spawn_points = 1 # how many guns are firing.
+
+@export_range(1, 1000) var spawn_distance = 20 # distance from centre of gun that rotator points are at.
+
+@export_range(0, 360, 0.1) var rotate_speed: float = 10.0 # degrees per second.
+
+@export var fire_rate: Array[float] = [2.0]
+
 var track_to_follow: PathFollow2D
 var track_progress: float = 0.0
 var track_rotation: float = 0.0
@@ -12,6 +22,11 @@ var starting_point: Vector2
 func _ready():
 	hide()
 	add_to_group("ships")
+	$Gun.bullet_speed = bullet_speed
+	$Gun.spawn_points = spawn_points
+	$Gun.spawn_distance = spawn_distance
+	$Gun.rotate_speed = rotate_speed
+	$Gun.fire_rate = fire_rate
 
 # To change the Gun, alter it in the node inspector of your ship scene
 
