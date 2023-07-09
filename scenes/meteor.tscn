@@ -1,7 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://lumyoxp6ynyo"]
+[gd_scene load_steps=7 format=3 uid="uid://lumyoxp6ynyo"]
 
 [ext_resource type="Script" path="res://scripts/meteor.gd" id="1_jm58i"]
 [ext_resource type="Texture2D" uid="uid://ysvdooq7vmmp" path="res://placeholder_art/meteor.png" id="2_htl3v"]
+[ext_resource type="AudioStream" uid="uid://cff6bnpdbfhat" path="res://placeholder_audio/damaged/damage1.ogg" id="3_xevcn"]
+[ext_resource type="AudioStream" uid="uid://com44v0f2mwi0" path="res://placeholder_audio/damaged/damage4.ogg" id="6_i36ne"]
+[ext_resource type="AudioStream" uid="uid://cvbnpvxu6wo0e" path="res://placeholder_audio/damaged/damage5.ogg" id="7_y8lsr"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_i4xxs"]
+streams_count = 3
+random_pitch = 1.4
+stream_0/stream = ExtResource("3_xevcn")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("6_i36ne")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("7_y8lsr")
+stream_2/weight = 1.0
 
 [node name="Meteor" type="RigidBody2D" groups=["meteor"]]
 script = ExtResource("1_jm58i")
@@ -15,3 +28,6 @@ texture = ExtResource("2_htl3v")
 position = Vector2(3, 5)
 scale = Vector2(0.5, 0.5)
 polygon = PackedVector2Array(34, -80.2, 39.1, -70, 74, -45.6, 74, -36, 77.3, 29, 73.1, 29, 40.1, 63, 36.8, 63, -18, 76.4, -18, 71.5, -36.5, 58, -40.6, 58, -57, 61, -57, 55.7, -81, 25.8, -81, 21.5, -85.5, -23, -82.1, -23, -54.1, -78, -45.5, -78, 14, -84.5, 14, -86, 34, -86)
+
+[node name="DamageTaken" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_i4xxs")

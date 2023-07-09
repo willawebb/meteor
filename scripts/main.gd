@@ -18,17 +18,7 @@ func _ready():
 	$SpawnTrack/SpawnRate.stop()
 	
 
-func game_over():
-	$SpawnTrack/SpawnRate.stop()
-	if score < 25:
-		$StartMessage.text = "How embarrassing."
-	else:
-		$StartMessage.text = "Starships\nWere Meant To\nFlyyyyy"
-	$StartMessage.show()
-	await(get_tree().create_timer(3.0).timeout)
-	$StartMessage.text = "Spaceships_"
-	$SubTitle.show()
-	$MadeBy.show()
+
 	
 func new_game():
 	score = 0
@@ -98,6 +88,39 @@ func _process(delta):
 	if not get_tree().get_nodes_in_group("ships"):
 		pass
 
+func game_over(meteor_pos):
+	var particles = explosion_scene.instantiate()
+	
+	particles.position = meteor_pos
+	
+	particles.process_material.color = Color(0.7, 0.2, 0.7)
+	
+	particles.emitting = true
+	
+	add_child(particles) 
+	
+	$GameOverSound.play()
+	
+	$VHS.material.set_shader_parameter("brightness", 12)
+	$VHS.material.set_shader_parameter("aberration", 0.05)
+	
+	#freeze frame
+	await(freeze_frame(1.0, 0.05))
+	
+	#reverting shader changes
+	$VHS.material.set_shader_parameter("brightness", 1.4)
+	$VHS.material.set_shader_parameter("aberration", 0.01)
+	
+	$SpawnTrack/SpawnRate.stop()
+	if score < 25:
+		$StartMessage.text = "How embarrassing."
+	else:
+		$StartMessage.text = "Starships\nWere Meant To\nFlyyyyy"
+	$StartMessage.show()
+	await(get_tree().create_timer(3.0).timeout)
+	$StartMessage.text = "Spaceships_"
+	$SubTitle.show()
+	$MadeBy.show()
 
 func _on_the_ship_from_asteroids_enemy_hit(ship_pos):
 	score += 1

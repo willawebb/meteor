@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://g24a5r2p016j"]
+[gd_scene load_steps=21 format=3 uid="uid://g24a5r2p016j"]
 
 [ext_resource type="PackedScene" uid="uid://dg6n5mshyobpk" path="res://scenes/asteroid.tscn" id="1_7l0af"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_egnuq"]
@@ -16,6 +16,7 @@
 [ext_resource type="FontFile" uid="uid://dfwxa5sd7o6yy" path="res://placeholder_art/Kenney Future.ttf" id="13_y27oq"]
 [ext_resource type="AudioStream" uid="uid://baxxhqo4suwyp" path="res://placeholder_audio/keeb.ogg" id="14_dts6n"]
 [ext_resource type="AudioStream" uid="uid://jr2wcn1yrjik" path="res://placeholder_audio/floppy_eject.ogg" id="15_8ykav"]
+[ext_resource type="AudioStream" uid="uid://ca4yjqyeidj4d" path="res://placeholder_audio/game_over.ogg" id="17_ce5kb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qsj81"]
 shader = ExtResource("6_t74ct")
@@ -56,6 +57,12 @@ stream_3/weight = 1.0
 stream_4/stream = ExtResource("10_fbt57")
 stream_4/weight = 1.0
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_hcy4h"]
+streams_count = 1
+random_pitch = 1.4
+stream_0/stream = ExtResource("17_ce5kb")
+stream_0/weight = 1.0
+
 [node name="Main" type="Node2D"]
 script = ExtResource("1_egnuq")
 asteroid_scene = ExtResource("1_7l0af")
@@ -69,8 +76,9 @@ offset_bottom = 1080.0
 color = Color(0, 0, 0, 1)
 
 [node name="SpawnTrack" parent="." instance=ExtResource("6_cnsx3")]
+position = Vector2(960, 544)
 thing_to_spawn = ExtResource("1_7l0af")
-spawn_rate = 1.0
+spawn_rate = 0.5
 
 [node name="VHS" parent="." instance=ExtResource("4_kqi6u")]
 z_index = 2
@@ -143,3 +151,7 @@ stream = ExtResource("14_dts6n")
 stream = ExtResource("15_8ykav")
 
 [node name="RockTimer" type="Timer" parent="."]
+
+[node name="GameOverSound" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_hcy4h")
+volume_db = 5.0
