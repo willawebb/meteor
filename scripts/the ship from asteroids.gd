@@ -34,5 +34,4 @@ func follow_track(delta):
 		position = track_to_follow.position
 		rotation = track_to_follow.rotation
 		if track_to_follow.progress_ratio >= 0.98:
-			hide()
 			queue_free()
