@@ -10,12 +10,16 @@ extends Node
 
 var score = 0
 
+var level = 0
+
 func _ready():
 	$StartUp.play()
 	$ScoreBoard.hide()
+	$SpawnTrack/SpawnRate.stop()
 	
 
 func game_over():
+	$SpawnTrack/SpawnRate.stop()
 	if score < 25:
 		$StartMessage.text = "How embarrassing."
 	else:
@@ -28,6 +32,7 @@ func game_over():
 	
 func new_game():
 	score = 0
+	level = 0
 	get_tree().call_group("meteor", "queue_free")
 	get_tree().call_group("asteroids", "queue_free")
 	get_tree().call_group("ships", "queue_free")
@@ -35,6 +40,7 @@ func new_game():
 	$StartMessage.hide()
 	$SubTitle.hide()
 	$MadeBy.hide()
+	$SpawnTrack/SpawnRate.start()
 	
 	var meteor = meteor_scene.instantiate()
 	
@@ -88,6 +94,9 @@ func _process(delta):
 		$ItsJoever.play()
 		await(get_tree().create_timer(0.5).timeout)
 		get_tree().quit()
+		
+	if not get_tree().get_nodes_in_group("ships"):
+		pass
 
 
 func _on_the_ship_from_asteroids_enemy_hit(ship_pos):

@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://lumyoxp6ynyo" path="res://scenes/meteor.tscn" id="2_13m8q"]
 [ext_resource type="PackedScene" uid="uid://cd8aabo7mr5r6" path="res://scenes/explosion.tscn" id="4_iauek"]
 [ext_resource type="PackedScene" uid="uid://b3gg4hn64w6sn" path="res://scenes/vhs.tscn" id="4_kqi6u"]
+[ext_resource type="PackedScene" uid="uid://vy0l5yqanq3j" path="res://scenes/spawn track.tscn" id="6_cnsx3"]
 [ext_resource type="AudioStream" uid="uid://cu2x78blngnct" path="res://placeholder_audio/crunch_impact/crunch1.ogg" id="6_itukb"]
 [ext_resource type="Shader" path="res://shaders/vhs.gdshader" id="6_t74ct"]
 [ext_resource type="AudioStream" uid="uid://b4cucnw5l8nm2" path="res://placeholder_audio/crunch_impact/crunch2.ogg" id="7_jow5m"]
@@ -13,7 +14,6 @@
 [ext_resource type="AudioStream" uid="uid://d1hsbfjh0kaua" path="res://placeholder_audio/crunch_impact/crunch4.ogg" id="9_4vp0x"]
 [ext_resource type="AudioStream" uid="uid://cntjvyu6tq3wf" path="res://placeholder_audio/crunch_impact/crunch5.ogg" id="10_fbt57"]
 [ext_resource type="FontFile" uid="uid://dfwxa5sd7o6yy" path="res://placeholder_art/Kenney Future.ttf" id="13_y27oq"]
-[ext_resource type="Script" path="res://scripts/StartMessage.gd" id="14_71xnt"]
 [ext_resource type="AudioStream" uid="uid://baxxhqo4suwyp" path="res://placeholder_audio/keeb.ogg" id="14_dts6n"]
 [ext_resource type="AudioStream" uid="uid://jr2wcn1yrjik" path="res://placeholder_audio/floppy_eject.ogg" id="15_8ykav"]
 
@@ -68,20 +68,9 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0, 0, 0, 1)
 
-[node name="ScoreBoard" type="RichTextLabel" parent="."]
-modulate = Color(1, 1, 1, 0.498039)
-self_modulate = Color(1, 1, 1, 0.498039)
-clip_contents = false
-anchors_preset = -1
-offset_top = 1.0
-offset_right = 1920.0
-offset_bottom = 1081.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/normal_font = ExtResource("13_y27oq")
-theme_override_font_sizes/normal_font_size = 900
-bbcode_enabled = true
-text = "[center]0[/center]"
+[node name="SpawnTrack" parent="." instance=ExtResource("6_cnsx3")]
+thing_to_spawn = ExtResource("1_7l0af")
+spawn_rate = 1.0
 
 [node name="VHS" parent="." instance=ExtResource("4_kqi6u")]
 z_index = 2
@@ -93,6 +82,20 @@ max_polyphony = 2
 
 [node name="StartPosition" type="Marker2D" parent="."]
 position = Vector2(943, 714)
+
+[node name="ScoreBoard" type="RichTextLabel" parent="."]
+modulate = Color(1, 1, 1, 0.498039)
+self_modulate = Color(1, 1, 1, 0.498039)
+clip_contents = false
+offset_top = 1.0
+offset_right = 1920.0
+offset_bottom = 1081.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("13_y27oq")
+theme_override_font_sizes/normal_font_size = 900
+bbcode_enabled = true
+text = "[center]0[/center]"
 
 [node name="StartMessage" type="RichTextLabel" parent="."]
 clip_contents = false
@@ -108,7 +111,6 @@ theme_override_fonts/normal_font = ExtResource("13_y27oq")
 theme_override_font_sizes/normal_font_size = 128
 text = "Spaceships_"
 autowrap_mode = 2
-script = ExtResource("14_71xnt")
 
 [node name="SubTitle" type="RichTextLabel" parent="."]
 offset_left = 126.0
@@ -139,3 +141,5 @@ stream = ExtResource("14_dts6n")
 
 [node name="ItsJoever" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("15_8ykav")
+
+[node name="RockTimer" type="Timer" parent="."]
