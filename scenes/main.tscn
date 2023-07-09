@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_egnuq"]
 [ext_resource type="PackedScene" uid="uid://6pwdc8ytag3s" path="res://scenes/the ship from asteroids.tscn" id="1_qy64g"]
 [ext_resource type="PackedScene" uid="uid://lumyoxp6ynyo" path="res://scenes/meteor.tscn" id="2_13m8q"]
-[ext_resource type="PackedScene" uid="uid://cd8aabo7mr5r6" path="res://explosion.tscn" id="4_ixkbd"]
+[ext_resource type="PackedScene" uid="uid://cd8aabo7mr5r6" path="res://scenes/explosion.tscn" id="4_iauek"]
 [ext_resource type="PackedScene" uid="uid://b3gg4hn64w6sn" path="res://scenes/vhs.tscn" id="4_kqi6u"]
 [ext_resource type="AudioStream" uid="uid://cu2x78blngnct" path="res://placeholder_audio/crunch_impact/crunch1.ogg" id="6_itukb"]
 [ext_resource type="Shader" path="res://shaders/vhs.gdshader" id="6_t74ct"]
@@ -56,7 +56,8 @@ stream_4/weight = 1.0
 script = ExtResource("1_egnuq")
 asteroid_scene = ExtResource("1_7l0af")
 ship_scene = ExtResource("1_qy64g")
-explosion_scene = ExtResource("4_ixkbd")
+explosion_scene = ExtResource("4_iauek")
+meteor_scene = ExtResource("2_13m8q")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1920.0
@@ -66,12 +67,16 @@ color = Color(0, 0, 0, 1)
 [node name="the ship from asteroids" parent="." instance=ExtResource("1_qy64g")]
 position = Vector2(418, 387)
 rotation = 1.5708
+collision_mask = 3
 
 [node name="Meteor" parent="." instance=ExtResource("2_13m8q")]
 position = Vector2(943, 460)
+collision_mask = 15
 
 [node name="Asteroid" parent="." instance=ExtResource("1_7l0af")]
 position = Vector2(1564, 714)
+collision_layer = 2
+collision_mask = 15
 
 [node name="VHS" parent="." instance=ExtResource("4_kqi6u")]
 z_index = 1
@@ -80,5 +85,8 @@ material = SubResource("ShaderMaterial_qsj81")
 [node name="ShipHitSounds" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_2wbew")
 max_polyphony = 2
+
+[node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(943, 714)
 
 [connection signal="enemy_hit" from="the ship from asteroids" to="." method="_on_the_ship_from_asteroids_enemy_hit"]

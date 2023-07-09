@@ -10,7 +10,7 @@ var speed
 
 var hp = 10
 
-signal collision(id, new_velocity)
+signal dead
 
 func _ready():
 	screen_size = get_viewport_rect().size
@@ -31,7 +31,11 @@ func get_input():
 		
 func take_damage(dmg):
 	hp -= dmg
-	print("Your Hp is {str}!".format({"str": hp}))
+	if hp <= 0:
+		hide()
+		dead.emit()
+		$CollisionPolygon2D.set_deferred("disabled", true)
+		queue_free()
 
 func _integrate_forces(state):
 	get_input()

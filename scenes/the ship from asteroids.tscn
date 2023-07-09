@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bvj8c5a0scqj8" path="res://placeholder_art/the ship from asteroids.png" id="1_t3j4r"]
 [ext_resource type="PackedScene" uid="uid://dvue4dtgve0of" path="res://scenes/gun.tscn" id="3_rfhuj"]
 
-[node name="ship" type="RigidBody2D"]
+[node name="ship" type="RigidBody2D" groups=["ships"]]
 collision_layer = 8
 gravity_scale = 0.0
 max_contacts_reported = 1

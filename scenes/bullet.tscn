@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lsrpp"]
 size = Vector2(8, 8)
 
-[node name="Bullet" type="Node2D"]
+[node name="Bullet" type="Node2D" groups=["bullets"]]
 position = Vector2(-4, -4)
 script = ExtResource("1_um87c")
 metadata/_edit_group_ = true

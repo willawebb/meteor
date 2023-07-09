@@ -4,6 +4,9 @@ signal bullet_hit
 
 var speed = 50
 
+func _ready():
+	add_to_group("bullets")
+
 # Called when the node enters the scene tree for the first time.
 func _process(delta):
 	position += transform.x * speed * delta

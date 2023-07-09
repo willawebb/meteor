@@ -6,6 +6,29 @@ extends Node
 
 @export var explosion_scene: PackedScene
 
+@export var meteor_scene: PackedScene
+
+var score = 0
+
+func game_over():
+	pass
+	
+func new_game():
+	score = 0
+	get_tree().call_group("meteor", "queue_free")
+	get_tree().call_group("asteroids", "queue_free")
+	get_tree().call_group("ships", "queue_free")
+	get_tree().call_group("bullets", "queue_free")
+	
+	var meteor = meteor_scene.instantiate()
+	
+	meteor.position = $StartPosition.position
+	
+	add_child(meteor)
+	
+	
+	
+
 func freeze_frame(duration, timescale):
 	
 	Engine.time_scale = timescale
@@ -14,7 +37,7 @@ func freeze_frame(duration, timescale):
 
 func _process(delta):
 	
-	if Input.is_action_just_pressed("select"):
+	if Input.is_action_just_pressed("button_2"):
 		var asteroid = asteroid_scene.instantiate()
 		
 		asteroid.position = get_viewport().get_mouse_position()
@@ -38,6 +61,9 @@ func _process(delta):
 		
 		add_child(ship)
 		
+	if Input.is_action_just_pressed("select"):
+		new_game()
+		
 	if Input.is_action_just_pressed("escape"):
 		get_tree().quit()
 
@@ -57,8 +83,6 @@ func _on_the_ship_from_asteroids_enemy_hit(ship_pos):
 	#Shader changes
 	var old_brightness = $VHS.material.get_shader_parameter("brightness")
 	var old_aberration = $VHS.material.get_shader_parameter("aberration")
-	
-	
 	
 	$VHS.material.set_shader_parameter("brightness", old_brightness+10)
 	$VHS.material.set_shader_parameter("aberration", 0.05)

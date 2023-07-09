@@ -9,6 +9,9 @@ var track_progress: float = 0.0
 var track_rotation: float = 0.0
 var starting_point: Vector2
 
+func _ready():
+	add_to_group("ships")
+
 # To change the Gun, alter it in the node inspector of your ship scene
 
 func _integrate_forces(state):
