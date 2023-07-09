@@ -1,15 +1,62 @@
-[gd_scene load_steps=6 format=3 uid="uid://g24a5r2p016j"]
+[gd_scene load_steps=15 format=3 uid="uid://g24a5r2p016j"]
 
 [ext_resource type="PackedScene" uid="uid://dg6n5mshyobpk" path="res://scenes/asteroid.tscn" id="1_7l0af"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_egnuq"]
 [ext_resource type="PackedScene" uid="uid://6pwdc8ytag3s" path="res://scenes/the ship from asteroids.tscn" id="1_qy64g"]
 [ext_resource type="PackedScene" uid="uid://lumyoxp6ynyo" path="res://scenes/meteor.tscn" id="2_13m8q"]
+[ext_resource type="PackedScene" uid="uid://cd8aabo7mr5r6" path="res://explosion.tscn" id="4_ixkbd"]
 [ext_resource type="PackedScene" uid="uid://b3gg4hn64w6sn" path="res://scenes/vhs.tscn" id="4_kqi6u"]
+[ext_resource type="AudioStream" uid="uid://cu2x78blngnct" path="res://placeholder_audio/crunch_impact/crunch1.ogg" id="6_itukb"]
+[ext_resource type="Shader" path="res://shaders/vhs.gdshader" id="6_t74ct"]
+[ext_resource type="AudioStream" uid="uid://b4cucnw5l8nm2" path="res://placeholder_audio/crunch_impact/crunch2.ogg" id="7_jow5m"]
+[ext_resource type="AudioStream" uid="uid://b55i4qtbjq32c" path="res://placeholder_audio/crunch_impact/crunch3.ogg" id="8_ilx2t"]
+[ext_resource type="AudioStream" uid="uid://d1hsbfjh0kaua" path="res://placeholder_audio/crunch_impact/crunch4.ogg" id="9_4vp0x"]
+[ext_resource type="AudioStream" uid="uid://cntjvyu6tq3wf" path="res://placeholder_audio/crunch_impact/crunch5.ogg" id="10_fbt57"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qsj81"]
+shader = ExtResource("6_t74ct")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.4
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.3
+shader_parameter/resolution = Vector2(1980, 1080)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 5.0
+shader_parameter/roll_size = 15.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.05
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.01
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 1.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.702
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_2wbew"]
+streams_count = 5
+random_pitch = 1.4
+random_volume_offset_db = 6.0
+stream_0/stream = ExtResource("6_itukb")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("7_jow5m")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("8_ilx2t")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("9_4vp0x")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("10_fbt57")
+stream_4/weight = 1.0
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_egnuq")
 asteroid_scene = ExtResource("1_7l0af")
 ship_scene = ExtResource("1_qy64g")
+explosion_scene = ExtResource("4_ixkbd")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1920.0
@@ -28,5 +75,10 @@ position = Vector2(1564, 714)
 
 [node name="VHS" parent="." instance=ExtResource("4_kqi6u")]
 z_index = 1
+material = SubResource("ShaderMaterial_qsj81")
+
+[node name="ShipHitSounds" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_2wbew")
+max_polyphony = 2
 
 [connection signal="enemy_hit" from="the ship from asteroids" to="." method="_on_the_ship_from_asteroids_enemy_hit"]

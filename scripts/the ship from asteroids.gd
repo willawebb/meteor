@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-signal enemy_hit
+signal enemy_hit(position)
 
 @export var speed = 150
 
@@ -19,11 +19,9 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 
 func _on_body_entered(_body):
 	hide()
-	enemy_hit.emit()
+	enemy_hit.emit(position)
 	$CollisionPolygon2D.set_deferred("disabled", true)
 	queue_free()
-	
-	pass # create an explosion effect?
 
 func set_track(track: PathFollow2D, start: Vector2):
 	track_to_follow = track

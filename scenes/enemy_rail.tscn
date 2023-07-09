@@ -15,7 +15,7 @@ script = ExtResource("1_tu8dn")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 position = Vector2(-4, -3)
-rotation = 0.595969
+rotation = 0.595968
 loop = false
 
 [node name="SpawnPoint" parent="." instance=ExtResource("2_4qef3")]

@@ -4,10 +4,11 @@ extends Node
 
 @export var ship_scene: PackedScene
 
+@export var explosion_scene: PackedScene
+
 func freeze_frame(duration, timescale):
 	
 	Engine.time_scale = timescale
-	print(Engine.time_scale)
 	await(get_tree().create_timer(duration * timescale).timeout)
 	Engine.time_scale = 1.0
 
@@ -41,5 +42,30 @@ func _process(delta):
 		get_tree().quit()
 
 
-func _on_the_ship_from_asteroids_enemy_hit():
-	freeze_frame(0.5, 0.05)
+func _on_the_ship_from_asteroids_enemy_hit(ship_pos):
+	$ShipHitSounds.play()
+	
+	#summon particles and ship rubble
+	var particles = explosion_scene.instantiate()
+	
+	particles.position = ship_pos
+	
+	particles.emitting = true
+	
+	add_child(particles)
+	
+	#Shader changes
+	var old_brightness = $VHS.material.get_shader_parameter("brightness")
+	var old_aberration = $VHS.material.get_shader_parameter("aberration")
+	
+	
+	
+	$VHS.material.set_shader_parameter("brightness", old_brightness+10)
+	$VHS.material.set_shader_parameter("aberration", 0.05)
+	
+	#freeze frame
+	await(freeze_frame(0.6, 0.05))
+	
+	#reverting shader changes
+	$VHS.material.set_shader_parameter("brightness", old_brightness)
+	$VHS.material.set_shader_parameter("aberration", old_aberration)
