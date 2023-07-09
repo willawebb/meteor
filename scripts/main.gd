@@ -162,3 +162,8 @@ func shuffle_rails(n: int = 3):
 	var node_count = len(rail_nodes)
 	for i in range(min(node_count, n)):
 		rail_nodes[randi() % node_count].start()
+
+
+func _on_enemy_rail_rail_spawned(thing):
+	print("This works.")
+	thing.connect("enemy_hit", _on_the_ship_from_asteroids_enemy_hit)

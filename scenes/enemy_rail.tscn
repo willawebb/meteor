@@ -5,9 +5,9 @@
 
 [sub_resource type="Curve2D" id="Curve2D_ylyey"]
 _data = {
-"points": PackedVector2Array(-185.859, -126.056, 185.859, 126.056, -4, -3, -178.324, 171.246, 178.324, -171.246, 1012, 61, 124.325, 192.652, -124.325, -192.652, 1028, -515, 128.092, -200.976, -128.092, 200.976, -28, -531)
+"points": PackedVector2Array(-185.859, -126.056, 185.859, 126.056, -4, -3, -178.324, 171.246, 178.324, -171.246, 1012, 61, 124.325, 192.652, -124.325, -192.652, 1028, -515, 128.092, -200.976, -128.092, 200.976, -28, -531, 0, 0, 0, 0, 872, 432)
 }
-point_count = 4
+point_count = 5
 
 [node name="Enemy Rail" type="Path2D"]
 curve = SubResource("Curve2D_ylyey")
@@ -21,4 +21,3 @@ loop = false
 [node name="SpawnPoint" parent="." instance=ExtResource("2_4qef3")]
 
 [connection signal="stop_rail" from="." to="." method="_on_stop_rail"]
-[connection signal="spawn_point_spawned" from="SpawnPoint" to="." method="_on_spawn_point_spawn_point_spawned"]
