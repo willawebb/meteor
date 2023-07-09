@@ -12,7 +12,6 @@ func _ready():
 	$SpawnPoint.track_to_follow = $PathFollow2D
 	$SpawnPoint.spawn_rate = spawn_rate
 	$SpawnPoint.starting_point = position
-	start()
 
 func start():
 	$SpawnPoint.start()
