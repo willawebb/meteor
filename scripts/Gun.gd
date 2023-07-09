@@ -15,7 +15,7 @@ var fire_index = 0
 
 # Change these in the node inspector of the ship scene, don't make a new gun
 
-func _ready():
+func start():
 	var step = 2 * PI / spawn_points
 	
 	for i in range(spawn_points):

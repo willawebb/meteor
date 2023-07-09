@@ -27,6 +27,7 @@ func _ready():
 	$Gun.spawn_distance = spawn_distance
 	$Gun.rotate_speed = rotate_speed
 	$Gun.fire_rate = fire_rate
+	$Gun.start()
 
 # To change the Gun, alter it in the node inspector of your ship scene
 
