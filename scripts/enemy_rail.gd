@@ -8,5 +8,5 @@ func _ready():
 	$SpawnPoint.thing_to_spawn = thing_to_spawn
 	$SpawnPoint.track_to_follow = $PathFollow2D
 	$SpawnPoint.spawn_rate = spawn_rate
+	$SpawnPoint.starting_point = position
 	$SpawnPoint.start()
-	

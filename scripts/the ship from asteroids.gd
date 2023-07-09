@@ -2,19 +2,20 @@ extends RigidBody2D
 
 signal enemy_hit
 
-@export var speed = 200
+@export var speed = 150
 
 var track_to_follow: PathFollow2D
 var track_progress: float = 0.0
+var track_rotation: float = 0.0
+var starting_point: Vector2
 
 # To change the Gun, alter it in the node inspector of your ship scene
 
 func _integrate_forces(state):
 	follow_track(state)
-	# velocity.x = move_toward(velocity.x, 0, speed)
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
-	queue_free()
+	pass # queue_free()
 
 func _on_body_entered(_body):
 	hide()
@@ -24,15 +25,18 @@ func _on_body_entered(_body):
 	
 	pass # create an explosion effect?
 
-func set_track(track: PathFollow2D):
+func set_track(track: PathFollow2D, start: Vector2):
 	track_to_follow = track
+	starting_point = start
 
 func follow_track(state):
 	if track_to_follow is PathFollow2D:
 		track_progress += speed * state.step
 		track_to_follow.progress = track_progress
-		state.transform.origin.x = track_to_follow.position.x
-		state.transform.origin.y = track_to_follow.position.y
-		rotation = track_to_follow.rotation
+		state.transform.origin.x = track_to_follow.position.x + starting_point.x
+		state.transform.origin.y = track_to_follow.position.y + starting_point.y
+		state.transform = state.transform.rotated_local(track_to_follow.rotation - track_rotation)
+		track_rotation = track_to_follow.rotation
 		if track_to_follow.progress_ratio >= 0.98:
 			queue_free()
+	
