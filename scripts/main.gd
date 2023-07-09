@@ -16,3 +16,6 @@ func _process(delta):
 		asteroid.linear_velocity = velocity.rotated(direction)
 		
 		add_child(asteroid)
+		
+	if Input.is_action_just_pressed("escape"):
+		get_tree().quit()

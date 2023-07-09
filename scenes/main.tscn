@@ -1,25 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://g24a5r2p016j"]
+[gd_scene load_steps=6 format=3 uid="uid://g24a5r2p016j"]
 
 [ext_resource type="PackedScene" uid="uid://dg6n5mshyobpk" path="res://scenes/asteroid.tscn" id="1_7l0af"]
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_egnuq"]
 [ext_resource type="PackedScene" uid="uid://6pwdc8ytag3s" path="res://scenes/the ship from asteroids.tscn" id="1_qy64g"]
 [ext_resource type="PackedScene" uid="uid://lumyoxp6ynyo" path="res://scenes/meteor.tscn" id="2_13m8q"]
 [ext_resource type="PackedScene" uid="uid://b3gg4hn64w6sn" path="res://scenes/vhs.tscn" id="4_kqi6u"]
 
-[sub_resource type="Sky" id="Sky_u4bwq"]
-
-[sub_resource type="Environment" id="Environment_v0bb4"]
-sky = SubResource("Sky_u4bwq")
-ambient_light_source = 3
-reflected_light_source = 2
-glow_enabled = true
-
 [node name="Main" type="Node2D"]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_v0bb4")
-
-[node name="Asteroid" parent="WorldEnvironment" instance=ExtResource("1_7l0af")]
-position = Vector2(1564, 714)
+script = ExtResource("1_egnuq")
+asteroid_scene = ExtResource("1_7l0af")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1920.0
@@ -34,3 +23,6 @@ rotation = 1.56861
 position = Vector2(943, 460)
 
 [node name="VHS" parent="." instance=ExtResource("4_kqi6u")]
+
+[node name="Asteroid" parent="." instance=ExtResource("1_7l0af")]
+position = Vector2(1564, 714)
