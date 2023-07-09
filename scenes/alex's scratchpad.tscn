@@ -15,6 +15,7 @@ thing_to_spawn = ExtResource("2_6fqru")
 spawn_rate = 2.0
 
 [node name="Enemy Rail" parent="." instance=ExtResource("3_30bgi")]
-position = Vector2(-500, 235)
+position = Vector2(-501.485, 235)
+scale = Vector2(0.94697, 1)
 thing_to_spawn = ExtResource("1_w7u4j")
 spawn_rate = 2.5
