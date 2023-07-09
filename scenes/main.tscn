@@ -9,6 +9,7 @@
 [node name="Main" type="Node2D"]
 script = ExtResource("1_egnuq")
 asteroid_scene = ExtResource("1_7l0af")
+ship_scene = ExtResource("1_qy64g")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1920.0
@@ -22,7 +23,10 @@ rotation = 1.5708
 [node name="Meteor" parent="." instance=ExtResource("2_13m8q")]
 position = Vector2(943, 460)
 
-[node name="VHS" parent="." instance=ExtResource("4_kqi6u")]
-
 [node name="Asteroid" parent="." instance=ExtResource("1_7l0af")]
 position = Vector2(1564, 714)
+
+[node name="VHS" parent="." instance=ExtResource("4_kqi6u")]
+z_index = 1
+
+[connection signal="enemy_hit" from="the ship from asteroids" to="." method="_on_the_ship_from_asteroids_enemy_hit"]
