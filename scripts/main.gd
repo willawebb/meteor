@@ -15,7 +15,10 @@ func _ready():
 	
 
 func game_over():
-	$StartMessage.text = "How embarrassing."
+	if score < 25:
+		$StartMessage.text = "How embarrassing."
+	else:
+		$StartMessage.text = "Starships\nWere Meant To\nFlyyyyy"
 	$StartMessage.show()
 	await(get_tree().create_timer(3.0).timeout)
 	$StartMessage.text = "Spaceships_"
@@ -87,6 +90,8 @@ func _process(delta):
 
 
 func _on_the_ship_from_asteroids_enemy_hit(ship_pos):
+	score += 1
+	
 	$ShipHitSounds.play()
 	
 	#summon particles and ship rubble
@@ -99,16 +104,14 @@ func _on_the_ship_from_asteroids_enemy_hit(ship_pos):
 	add_child(particles)
 	
 	#Shader changes
-	var old_brightness = $VHS.material.get_shader_parameter("brightness")
-	var old_aberration = $VHS.material.get_shader_parameter("aberration")
 	
-	$VHS.material.set_shader_parameter("brightness", old_brightness+10)
+	$VHS.material.set_shader_parameter("brightness", 12)
 	$VHS.material.set_shader_parameter("aberration", 0.05)
 	
 	#freeze frame
 	await(freeze_frame(0.6, 0.05))
 	
 	#reverting shader changes
-	$VHS.material.set_shader_parameter("brightness", old_brightness)
-	$VHS.material.set_shader_parameter("aberration", old_aberration)
+	$VHS.material.set_shader_parameter("brightness", 1.4)
+	$VHS.material.set_shader_parameter("aberration", 0.01)
 	
