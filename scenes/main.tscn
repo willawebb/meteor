@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://g24a5r2p016j"]
+[gd_scene load_steps=16 format=3 uid="uid://g24a5r2p016j"]
 
 [ext_resource type="PackedScene" uid="uid://dg6n5mshyobpk" path="res://scenes/asteroid.tscn" id="1_7l0af"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_egnuq"]
@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://b55i4qtbjq32c" path="res://placeholder_audio/crunch_impact/crunch3.ogg" id="8_ilx2t"]
 [ext_resource type="AudioStream" uid="uid://d1hsbfjh0kaua" path="res://placeholder_audio/crunch_impact/crunch4.ogg" id="9_4vp0x"]
 [ext_resource type="AudioStream" uid="uid://cntjvyu6tq3wf" path="res://placeholder_audio/crunch_impact/crunch5.ogg" id="10_fbt57"]
+[ext_resource type="FontFile" uid="uid://dfwxa5sd7o6yy" path="res://placeholder_art/Kenney Future.ttf" id="13_y27oq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qsj81"]
 shader = ExtResource("6_t74ct")
@@ -64,22 +65,8 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0, 0, 0, 1)
 
-[node name="the ship from asteroids" parent="." instance=ExtResource("1_qy64g")]
-position = Vector2(418, 387)
-rotation = 1.5708
-collision_mask = 3
-
-[node name="Meteor" parent="." instance=ExtResource("2_13m8q")]
-position = Vector2(943, 460)
-collision_mask = 15
-
-[node name="Asteroid" parent="." instance=ExtResource("1_7l0af")]
-position = Vector2(1564, 714)
-collision_layer = 2
-collision_mask = 15
-
 [node name="VHS" parent="." instance=ExtResource("4_kqi6u")]
-z_index = 1
+z_index = 2
 material = SubResource("ShaderMaterial_qsj81")
 
 [node name="ShipHitSounds" type="AudioStreamPlayer2D" parent="."]
@@ -89,4 +76,41 @@ max_polyphony = 2
 [node name="StartPosition" type="Marker2D" parent="."]
 position = Vector2(943, 714)
 
-[connection signal="enemy_hit" from="the ship from asteroids" to="." method="_on_the_ship_from_asteroids_enemy_hit"]
+[node name="StartMessage" type="RichTextLabel" parent="."]
+clip_contents = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 126.0
+offset_top = 200.0
+offset_right = 1276.0
+offset_bottom = 400.0
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("13_y27oq")
+theme_override_font_sizes/normal_font_size = 128
+text = "Spaceships_"
+autowrap_mode = 0
+
+[node name="SubTitle" type="RichTextLabel" parent="."]
+offset_left = 126.0
+offset_top = 359.0
+offset_right = 1226.0
+offset_bottom = 559.0
+theme_override_fonts/normal_font = ExtResource("13_y27oq")
+theme_override_font_sizes/normal_font_size = 48
+text = "Press [SPACE] to start_"
+
+[node name="MadeBy" type="RichTextLabel" parent="."]
+clip_contents = false
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 167.0
+offset_top = 972.0
+offset_right = 1067.0
+offset_bottom = 1172.0
+grow_vertical = 0
+theme_override_fonts/normal_font = ExtResource("13_y27oq")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "Made by [color=#FF00FF]William Webb[/color] and [color=#00FF00]Alex Blandin[/color]."

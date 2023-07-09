@@ -11,7 +11,12 @@ extends Node
 var score = 0
 
 func game_over():
-	pass
+	$StartMessage.text = "How embarrassing."
+	$StartMessage.show()
+	await(get_tree().create_timer(3.0).timeout)
+	$StartMessage.text = "Spaceships_"
+	$SubTitle.show()
+	$MadeBy.show()
 	
 func new_game():
 	score = 0
@@ -19,12 +24,19 @@ func new_game():
 	get_tree().call_group("asteroids", "queue_free")
 	get_tree().call_group("ships", "queue_free")
 	get_tree().call_group("bullets", "queue_free")
+	$StartMessage.hide()
+	$SubTitle.hide()
+	$MadeBy.hide()
 	
 	var meteor = meteor_scene.instantiate()
 	
 	meteor.position = $StartPosition.position
 	
+	meteor.connect("dead", game_over)
+	
 	add_child(meteor)
+	
+	#The fucking game loop.
 	
 	
 	
@@ -93,3 +105,4 @@ func _on_the_ship_from_asteroids_enemy_hit(ship_pos):
 	#reverting shader changes
 	$VHS.material.set_shader_parameter("brightness", old_brightness)
 	$VHS.material.set_shader_parameter("aberration", old_aberration)
+	
