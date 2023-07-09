@@ -30,3 +30,6 @@ func _on_spawn_rate_timeout():
 	thing.linear_velocity = velocity.rotated(direction)
 	
 	add_child(thing)
+
+func stop():
+	$SpawnRate.stop()
